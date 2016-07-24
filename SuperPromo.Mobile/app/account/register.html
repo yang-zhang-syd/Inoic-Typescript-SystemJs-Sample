@@ -1,0 +1,29 @@
+﻿<ion-view>
+    <ion-nav-title>新用户注册</ion-nav-title>
+    <ion-content>
+        <form name="registerForm" novalidate>
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Email</span>
+                    <input required name="email" type="email" placeholder="sample@hostname.com" ng-model="vm.Email">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">密码</span>
+                    <input ng-minlength="6" required name="password" type="password" placeholder="password" ng-model="vm.Password">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">重复输入密码</span>
+                    <input ng-minlength="6" required name="repeatPassword" type="password" placeholder="repeat password" ng-model="vm.RepeatPassword">
+                </label>
+                <div class="padding">
+                    <p class="assertive" ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">* 必须输入Email</p>
+                    <p class="assertive" ng-show="registerForm.password.$invalid && !registerForm.password.$pristine">* 密码至少为6位</p>
+                    <p class="assertive" ng-show="registerForm.repeatPassword.$invalid && !registerForm.repeatPassword.$pristine">* 密码至少为6位</p>
+                </div>
+                <div class="padding">
+                    <button ng-disabled="registerForm.$invalid" class="button button-block button-positive" type="button" ng-click="vm.register()">提交</button>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
